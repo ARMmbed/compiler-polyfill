@@ -1,6 +1,6 @@
 {
   "name": "compiler-polyfill",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Smooth over some of the differences between compilers.",
   "keywords": [
     "polyfill"
@@ -17,7 +17,6 @@
       "type": "Apache-2.0"
     }
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "targetDependencies": {}
 }

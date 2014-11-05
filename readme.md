@@ -5,7 +5,14 @@ differences between compilers.
 
 ### API
 
-### Attributes
+#### Attributes
+##### `__packed`
+Pack a structure, preventing any padding from being added between fields.
+
+##### `__align(N)`
+Declare a type to be aligbned on an N-byte boundary.
+
+##### Examples
 ```C
 #include "compiler-polyfill/attributes.h"
 

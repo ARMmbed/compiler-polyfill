@@ -27,6 +27,10 @@
         #define __align(N) __attribute__((aligned (N)))
     #endif
 
+    #ifndef __unused
+        #define __unused __attribute__((__unused__))
+    #endif
+
 #elif defined(__clang__)
 // llvm/clang
     #ifndef __packed
@@ -35,6 +39,10 @@
     
     #ifndef __align
         #define __align(N) __attribute__((aligned (N)))
+    #endif
+    
+    #ifndef __unused
+        #define __unused __attribute__((__unused__))
     #endif
 
 #else

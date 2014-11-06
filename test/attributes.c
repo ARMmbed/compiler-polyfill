@@ -76,12 +76,17 @@ int testAlign(){
     return failed;
 }
 
+int testUnused(int __unused arg){
+    return 0;
+}
+
 
 int main(){
     int failed = 0;
     
     failed += testPacked();
     failed += testAlign();
+    failed += testUnused(0);
 
     return failed;
 }

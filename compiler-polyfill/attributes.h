@@ -17,8 +17,8 @@
 #ifndef __COMPILER_POLYFILL_ATTRIBUTES_H__
 #define __COMPILER_POLYFILL_ATTRIBUTES_H__
 
-#if defined(__GNUC__)
-// GCC
+#if defined(__GNUC__) || defined (__CC_ARM)
+// GCC and armcc
     #ifndef __packed
         #define __packed __attribute__((packed))
     #endif

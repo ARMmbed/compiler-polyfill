@@ -17,8 +17,8 @@
 #ifndef __COMPILER_POLYFILL_ATTRIBUTES_H__
 #define __COMPILER_POLYFILL_ATTRIBUTES_H__
 
-#if defined(__GNUC__)
-// GCC
+#if defined(__GNUC__) || defined (__CC_ARM) || defined(__clang__)
+// GCC, armcc and llvm/clang
     #ifndef __packed
         #define __packed __attribute__((packed))
     #endif
@@ -27,20 +27,6 @@
         #define __align(N) __attribute__((aligned (N)))
     #endif
 
-    #ifndef __unused
-        #define __unused __attribute__((__unused__))
-    #endif
-
-#elif defined(__clang__)
-// llvm/clang
-    #ifndef __packed
-        #define __packed __attribute__((packed))
-    #endif
-    
-    #ifndef __align
-        #define __align(N) __attribute__((aligned (N)))
-    #endif
-    
     #ifndef __unused
         #define __unused __attribute__((__unused__))
     #endif

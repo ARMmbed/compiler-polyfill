@@ -31,10 +31,12 @@
         #define __unused __attribute__((__unused__))
     #endif
 
+    #ifndef __weak
+        #define __weak __attribute__((weak))
+    #endif
 #else
 // unknown compiler
     #error "this compiler is not yet supported by compiler-polyfill, if you can contribute support please submit a pull request at https://github.com/ARMmbed/compiler-polyfill"
 #endif
-
 
 #endif // ndef __COMPILER_POLYFILL_ATTRIBUTES_H__

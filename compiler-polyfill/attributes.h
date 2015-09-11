@@ -34,6 +34,11 @@
     #ifndef __weak
         #define __weak __attribute__((weak))
     #endif
+
+    #ifndef __deprecated
+        #define __deprecated __attribute__((deprecated))
+    #endif
+
 #else
 // unknown compiler
     #error "this compiler is not yet supported by compiler-polyfill, if you can contribute support please submit a pull request at https://github.com/ARMmbed/compiler-polyfill"

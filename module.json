@@ -3,7 +3,9 @@
   "version": "1.1.0",
   "description": "Smooth over some of the differences between compilers.",
   "keywords": [
-    "polyfill"
+    "polyfill",
+    "mbed",
+    "mbed-official"
   ],
   "author": "James Crosby <james.crosby@arm.com>",
   "repository": {

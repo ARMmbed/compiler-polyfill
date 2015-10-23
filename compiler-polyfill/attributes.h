@@ -39,6 +39,14 @@
         #define __deprecated __attribute__((deprecated))
     #endif
 
+    #ifndef __uninitialized
+        #define __uninitialized __attribute__((section(".uninitialized")))
+    #endif
+
+    #ifndef __force_uninitialized
+        #define __force_uninitialized __attribute__((section(".keep.uninitialized")))
+    #endif
+
 #else
 // unknown compiler
     #error "this compiler is not yet supported by compiler-polyfill, if you can contribute support please submit a pull request at https://github.com/ARMmbed/compiler-polyfill"

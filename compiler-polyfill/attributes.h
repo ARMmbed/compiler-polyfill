@@ -52,7 +52,12 @@
     #endif
 
     #ifndef __deprecated_message
-        #define __deprecated_message(msg) __attribute__((deprecated(msg)))
+        #if defined(__CC_ARM)
+            // no argument support in armcc
+            #define __deprecated_message(msg) __attribute__((deprecated))
+        #else
+            #define __deprecated_message(msg) __attribute__((deprecated(msg)))
+        #endif
     #endif
 
 #else

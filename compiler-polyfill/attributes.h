@@ -39,6 +39,10 @@
         #define __deprecated __attribute__((deprecated))
     #endif
 
+    #ifndef __deprecated_message
+        #define __deprecated_message(msg) __attribute__((deprecated(msg)))
+    #endif
+
 #else
 // unknown compiler
     #error "this compiler is not yet supported by compiler-polyfill, if you can contribute support please submit a pull request at https://github.com/ARMmbed/compiler-polyfill"

@@ -30,7 +30,7 @@
     #ifndef __unused
         #define __unused __attribute__((__unused__))
     #endif
-
+    
     #ifndef __weak
         #define __weak __attribute__((weak))
     #endif
@@ -40,7 +40,12 @@
     #endif
 
     #ifndef __deprecated_message
-        #define __deprecated_message(msg) __attribute__((deprecated(msg)))
+        #if defined(__CC_ARM)
+            // no argument support in armcc
+            #define __deprecated_message(msg) __attribute__((deprecated))
+        #else
+            #define __deprecated_message(msg) __attribute__((deprecated(msg)))
+        #endif
     #endif
 
 #else

@@ -38,7 +38,42 @@ Declare a function argument to be unused, suppressing compiler warnings.
 void foo(int __unused arg){
     
 }
-
 ```
 
+##### `__weak`
+Mark a function as being weak.
 
+**Note:** weak functions are not friendly to making code re-usable, as they can
+only be overridden once (and if they are multiply overridden the linker will
+emit no warning). You should not normally use weak symbols as part of the API
+to re-usable yotta modules.
+
+```C
+#include "compiler-polyfill/attributes.h"
+
+void __weak foo() {
+    // a weak implementation of foo that can be overriden by a definition
+    // without  __weak
+}
+```
+
+##### `__deprecated`
+Mark a function declaration as deprecated, if it used then a warning will be
+issued by the compiler.
+
+```C
+#include "compiler-polyfill/attributes.h"
+
+void foo(int arg) __deprecated;
+```
+
+##### `__deprecated_message("message string")`
+Mark a function declaration as deprecated, if it used then a warning will be
+issued by the compiler possibly including the provided message. Note that not
+all compilers are able to display the message.
+
+```C
+#include "compiler-polyfill/attributes.h"
+
+void foo(int arg) __deprecated_message("don't foo any more, bar instead");
+```

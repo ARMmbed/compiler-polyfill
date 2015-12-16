@@ -1,5 +1,5 @@
 /* compiler-polyfill
- * Copyright (c) 2014 ARM Limited
+ * Copyright (c) 2014-2015 ARM Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,6 +80,33 @@ int testUnused(int __unused arg){
     return 0;
 }
 
+void testDeprecatedUnused() __deprecated;
+void testDeprecatedUnused(){ }
+
+int testDeprecatedUsed() __deprecated;
+int testDeprecatedUsed(){
+    return 0;
+}
+
+void testDeprecatedUnusedMessage() __deprecated_message("this message should not be displayed"); 
+void testDeprecatedUnusedMessage(){ }
+
+int testDeprecatedUsedMessage() __deprecated_message("this message should be displayed");
+int testDeprecatedUsedMessage(){
+    return 0;
+}
+
+
+int testWeak1();
+int testWeak2();
+
+int testWeak2(){
+    return 0;
+}
+
+int __weak testWeak1() {
+    return 1;
+}
 
 int main(){
     int failed = 0;
@@ -87,6 +114,10 @@ int main(){
     failed += testPacked();
     failed += testAlign();
     failed += testUnused(0);
+    failed += testDeprecatedUsed();
+    failed += testWeak1();
+    failed += testWeak2();
+    failed += testDeprecatedUsedMessage();
 
     return failed;
 }

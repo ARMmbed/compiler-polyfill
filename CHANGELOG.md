@@ -1,3 +1,7 @@
+### 1.2.1
+ * fix `__deprecated_message` in armcc (there is no support for displaying the
+   message)
+
 ## 1.2.0
  * add `__deprecated_message("message here")`
 

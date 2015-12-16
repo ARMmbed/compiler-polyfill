@@ -30,10 +30,22 @@
     #ifndef __unused
         #define __unused __attribute__((__unused__))
     #endif
-
-    #ifndef __weak
-        #define __weak __attribute__((weak))
-    #endif
+    
+    // __weak has a different meaning on objc: when included from objc code
+    // don't define it
+    #ifndef __OBJC__
+        #ifdef __APPLE__
+            // when compiling for OS X (and not compiling objective-c code)
+            // replace the built-in __weak gc attribute with a weak-linking
+            // attribute
+            #undef __weak
+            #define __weak __attribute__((weak))
+        #else
+            #ifndef __weak
+                #define __weak __attribute__((weak))
+            #endif
+        #endif
+    #endif // ndef __OBJC__
 
     #ifndef __deprecated
         #define __deprecated __attribute__((deprecated))

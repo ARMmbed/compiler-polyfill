@@ -35,6 +35,10 @@
         #define __weak __attribute__((weak))
     #endif
 
+    #ifndef __alias
+        #define __alias(name) __attribute__((alias(name)))
+    #endif
+
     #ifndef __deprecated
         #define __deprecated __attribute__((deprecated))
     #endif

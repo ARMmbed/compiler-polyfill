@@ -43,6 +43,10 @@
         #define __section(name) __attribute__((section(name)))
     #endif
 
+    #ifndef __naked
+        #define __naked __attribute__((naked))
+    #endif
+
     #ifndef __deprecated
         #define __deprecated __attribute__((deprecated))
     #endif

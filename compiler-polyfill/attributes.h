@@ -35,6 +35,18 @@
         #define __weak __attribute__((weak))
     #endif
 
+    #ifndef __alias
+        #define __alias(name) __attribute__((alias(name)))
+    #endif
+
+    #ifndef __section
+        #define __section(name) __attribute__((section(name)))
+    #endif
+
+    #ifndef __naked
+        #define __naked __attribute__((naked))
+    #endif
+
     #ifndef __deprecated
         #define __deprecated __attribute__((deprecated))
     #endif
